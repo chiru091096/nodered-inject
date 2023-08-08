@@ -3,7 +3,7 @@ module.exports = function (RED) {
         RED.nodes.createNode(this, config);
         var node = this;
 
-        this.on('input', function (msg) {
+        node.on('input', function (msg) {
             var valueType = config.valueType;
             var value = config.value;
 
@@ -16,8 +16,11 @@ module.exports = function (RED) {
             msg.payload = value;
             node.send(msg);
         });
+
+        node.on('close', function () {
+            // Cleanup tasks if needed
+        });
     }
 
     RED.nodes.registerType('custom-node', CustomNode);
 };
-
