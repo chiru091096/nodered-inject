@@ -1,0 +1,16 @@
+<script type="text/javascript">
+    RED.nodes.registerType('my-inject-node',{
+        category: 'input',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value: "" },
+            payload: { value: "Hello, World!" }
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "inject.png",
+        label: function() {
+            return this.name || "my-inject-node";
+        }
+    });
+</script>
