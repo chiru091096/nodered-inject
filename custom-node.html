@@ -11,6 +11,10 @@
         icon: "node.png",
         label: function () {
             return this.name || "custom-node";
+        },
+        oneditprepare: function () {
+            // Add your custom HTML to modify the node appearance in the editor
+            // For example, you can create input fields for type and value
         }
     });
 </script>
