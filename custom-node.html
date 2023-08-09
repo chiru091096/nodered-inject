@@ -3,7 +3,7 @@
         category: 'function',
         color: '#a6bbcf',
         defaults: {
-            type: { value: "default", required: true },
+            type: { value: "", required: true },
             value: { value: "", required: true }
         },
         inputs: 1,
@@ -13,8 +13,16 @@
             return this.name || "custom-node";
         },
         oneditprepare: function () {
-            // Add your custom HTML to modify the node appearance in the editor
-            // For example, you can create input fields for type and value
+            // Create the input fields for type and value properties
+            var typeInput = $("<input>", { type: "text", id: "node-input-type" }).appendTo("#dialog-form");
+            var valueInput = $("<input>", { type: "text", id: "node-input-value" }).appendTo("#dialog-form");
+            $("#node-input-type").val(this.type);
+            $("#node-input-value").val(this.value);
+        },
+        oneditsave: function () {
+            // Save the values of type and value properties
+            this.type = $("#node-input-type").val();
+            this.value = $("#node-input-value").val();
         }
     });
 </script>
