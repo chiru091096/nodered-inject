@@ -14,15 +14,19 @@
         },
         oneditprepare: function () {
             // Create the input fields for type and value properties
-            var typeInput = $("<input>", { type: "text", id: "node-input-type" }).appendTo("#dialog-form");
-            var valueInput = $("<input>", { type: "text", id: "node-input-value" }).appendTo("#dialog-form");
-            $("#node-input-type").val(this.type);
-            $("#node-input-value").val(this.value);
+            $('<label for="node-input-type">Type</label><input type="text" id="node-input-type" placeholder="Enter type"><br>')
+                .appendTo('#node-dialog-edit-form');
+            $('<label for="node-input-value">Value</label><input type="text" id="node-input-value" placeholder="Enter value">')
+                .appendTo('#node-dialog-edit-form');
+
+            // Set the input field values based on the current node configuration
+            $('#node-input-type').val(this.type);
+            $('#node-input-value').val(this.value);
         },
         oneditsave: function () {
-            // Save the values of type and value properties
-            this.type = $("#node-input-type").val();
-            this.value = $("#node-input-value").val();
+            // Save the values of type and value properties when editing is saved
+            this.type = $('#node-input-type').val();
+            this.value = $('#node-input-value').val();
         }
     });
 </script>
